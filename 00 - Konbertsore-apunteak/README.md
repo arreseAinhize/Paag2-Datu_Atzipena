@@ -1,55 +1,55 @@
-# Proyecto: konbertsore-apunteak
+# Proiektua: konbertsore-apunteak
+## Laburpena
+Errepositorio hau Java-n egindako kontsola-aplikazio txiki bat da, fitxategiak (.TXT, .XML, .JSON, .CSV) kudeatzeko/sortzeko, balidazio oinarrizkoekin eta menu interaktibo batekin.
 
-## Resumen breve
-Este repositorio es una pequeña aplicación de consola en Java para gestionar/fabricar archivos (.TXT, .XML, .JSON, .CSV) con validaciones básicas y menú interactivo.
+## Karpeten eta fitxategien egitura (laburpena)
+- [.vscode/settings.json](.vscode/settings.json) — VSCode-rako Java proiektuaren konfigurazioa (iturburu-bideak, bin irteera eta erreferentziatutako liburutegiak).
 
-## Estructura de carpetas y archivos (explicación breve)
-- [.vscode/settings.json](.vscode/settings.json)  
-  Configuración del proyecto Java para VSCode (rutas de source, salida bin y librerías referenciadas).
+- src/ (Java iturburu-kodea)
+  - [src/main/App.java](src/main/App.java) — Klase nagusia eta menu nagusia. Fitxategi motaren arabera azpimenuak exekutatzen ditu. Erreferentzia:[`main.App`](src/main/App.java).
+  - [src/main/error/ErroreenKudeaketa.java](src/main/error/ErroreenKudeaketa.java) — Fitxategiak egiaztatzeko/sortzeko/irakurtzeko/idazteko/ezabatzeko utilitateak eta NAN existitzen den egiaztatzeko funtzioak CSV/XML-n. Erreferentzia: [`main.error.ErroreenKudeaketa`](src/main/error/ErroreenKudeaketa.java).
+  - [src/main/io/KudeatzaileaTXT.java](src/main/io/KudeatzaileaTXT.java) — .TXT-rako menu eta eragiketak. Erreferentzia: [`main.io.KudeatzaileaTXT`](src/main/io/KudeatzaileaTXT.java).
+  - [src/main/io/KudeatzaileaXML.java](src/main/io/KudeatzaileaXML.java) — .XML-rako menu eta eragiketak. Erreferentzia: [`main.io.KudeatzaileaXML`](src/main/io/KudeatzaileaXML.java).
+  - [src/main/io/KudeatzaileaJSON.java](src/main/io/KudeatzaileaJSON.java) — .JSON-rako menu eta eragiketak. Erreferentzia: [`main.io.KudeatzaileaJSON`](src/main/io/KudeatzaileaJSON.java).
+  - [src/main/io/KudeatzaileaCSV.java](src/main/io/KudeatzaileaCSV.java) — .CSV-rako menu eta eragiketak. Erreferentzia: [`main.io.KudeatzaileaCSV`](src/main/io/KudeatzaileaCSV.java).
+  - [src/main/model/Ikaslea.java](src/main/model/Ikaslea.java) — Ikaslearen datu-eredua (NAN, izena, abizenak, adina, helbidea) eraikitzailean balidazioekin. Erreferentzia [`main.model.Ikaslea`](src/main/model/Ikaslea.java).
+  - [src/main/utils/Filtroak.java](src/main/utils/Filtroak.java) — Balidazio funtzio berrerabilgarriak (isnumeric, isDNI, isIzena, isAdina, isHelbidea, eta abar). Erreferentzia: [`main.utils.Filtroak`](src/main/utils/Filtroak.java).
+  - [src/main/utils/Gehigarriak.java](src/main/utils/Gehigarriak.java) — Kontsola utilitateak (scanner partekatua, koloreak, pantaila garbitu, pausa). Erreferentzia: [`main.utils.Gehigarriak`](src/main/utils/Gehigarriak.java).
 
-- src/ (código fuente Java)
-  - [src/main/App.java](src/main/App.java) — Clase principal y menú principal. Ejecuta los submenús de cada tipo de archivo. Referencia: [`main.App`](src/main/App.java).
-  - [src/main/error/ErroreenKudeaketa.java](src/main/error/ErroreenKudeaketa.java) — Utilidades para comprobar/crear/leer/escribir/ eliminar archivos y comprobar existencia de NAN en CSV/XML. Referencia: [`main.error.ErroreenKudeaketa`](src/main/error/ErroreenKudeaketa.java).
-  - [src/main/io/KudeatzaileaTXT.java](src/main/io/KudeatzaileaTXT.java) — Menú y operaciones previstas para .TXT. Referencia: [`main.io.KudeatzaileaTXT`](src/main/io/KudeatzaileaTXT.java).
-  - [src/main/io/KudeatzaileaXML.java](src/main/io/KudeatzaileaXML.java) — Menú y operaciones previstas para .XML. Referencia: [`main.io.KudeatzaileaXML`](src/main/io/KudeatzaileaXML.java).
-  - [src/main/io/KudeatzaileaJSON.java](src/main/io/KudeatzaileaJSON.java) — Menú y operaciones previstas para .JSON. Referencia: [`main.io.KudeatzaileaJSON`](src/main/io/KudeatzaileaJSON.java).
-  - [src/main/io/KudeatzaileaCSV.java](src/main/io/KudeatzaileaCSV.java) — Menú y operaciones previstas para .CSV. Referencia: [`main.io.KudeatzaileaCSV`](src/main/io/KudeatzaileaCSV.java).
-  - [src/main/model/Ikaslea.java](src/main/model/Ikaslea.java) — Modelo de datos para un alumno (NAN, nombre, apellidos, edad, dirección) con validaciones en el constructor. Referencia: [`main.model.Ikaslea`](src/main/model/Ikaslea.java).
-  - [src/main/utils/Filtroak.java](src/main/utils/Filtroak.java) — Funciones de validación reutilizables (isnumeric, isDNI, isIzena, isAdina, isHelbidea, etc.). Referencia: [`main.utils.Filtroak`](src/main/utils/Filtroak.java).
-  - [src/main/utils/Gehigarriak.java](src/main/utils/Gehigarriak.java) — Utilidades de consola (scanner compartido, colores, limpiar pantalla, pausa). Referencia: [`main.utils.Gehigarriak`](src/main/utils/Gehigarriak.java).
+- resources/ eta src/resources/ (txantiloiak/adibideak)
+  - resources/csv/, resources/json/, resources/txt/, resources/xml/ — sarrerako/irteerako fitxategiak gordetzeko karpetak. (Ez dago fitxategi zehatzik lib karpetan.)
 
-- resources/ y src/resources/ (plantillas/ejemplos)
-  - resources/csv/, resources/json/, resources/txt/, resources/xml/ — carpetas para almacenar ejemplos o ficheros de entrada/salida. (No hay archivos concretos listados en lib adjunto.)
+- bin/ (konpilatutako irteera)
+  - Konpilatutako klaseentzako egitura (bin/main/...). VSCode/Java-k hemen kokatzen ditu .class fitxategiak.
 
-- bin/ (salida compilada)
-  - Estructura preparada para clases compiladas (bin/main/...). VSCode/Java coloca aquí los .class.
-
-- lib/ (dependencias)
-  - Carpeta para jars externos si fueran necesarios (actualmente vacía en el repositorio adjuntado).
+- lib/ (mendekotasunak)
+  - Kanpoko jar fitxategientzako karpeta (une honetan hutsik dago erantsitako errepositorioan).
 
 ## Qué hace cada parte (resumen funcional)
-- Menús (.TXT/.XML/.JSON/.CSV): los gestores en [src/main/io](src/main/io) presentan opciones (crear, listar, leer, añadir, actualizar, borrar, convertir). En el código actual las operaciones específicas están marcadas como TODO o impresas como mensajes; la estructura del menú está lista para implementar la lógica concreta.
-- Validaciones: [`main.utils.Filtroak`](src/main/utils/Filtroak.java) valida formatos (DNI/NAN, nombres, edades, direcciones).
-- Modelo: [`main.model.Ikaslea`](src/main/model/Ikaslea.java) encapsula un registro de alumno y lanza IllegalArgumentException si los campos no pasan validación.
-- Errores y I/O: [`main.error.ErroreenKudeaketa`](src/main/error/ErroreenKudeaketa.java) contiene funciones para comprobar existencia de archivos, leerlos/escribirlos, crear/eliminar y buscar NAN en CSV/XML.
+- **Menuak (.TXT/.XML/.JSON/.CSV):** [src/main/io](src/main/io) karpetako kudeatzaileek aukera hauek eskaintzen dituzte (sortu, zerrendatu, irakurri, gehitu, eguneratu, ezabatu, bihurtu). Uneko kodean eragiketa zehatzak *TODO* gisa markatuta daude edo mezu gisa inprimatuta; menuen egitura prest dago logika zehatza inplementatzeko.
+- Balidazioak: [`main.utils.Filtroak`](src/main/utils/Filtroak.java) formatuak balidatzen ditu (DNI/NAN, izenak, adinak, helbideak).
 
-## Cómo compilar y ejecutar (desde la raíz del proyecto)
-- Compilar con javac (coloca los .class en bin):
+- Eredua: [`main.model.Ikaslea`](src/main/model/Ikaslea.java) ikaslearen erregistroa kapsulatzen du eta IllegalArgumentException jaurtitzen du balidazioa gainditzen ez bada.
+
+- Erroreak eta I/O: [`main.error.ErroreenKudeaketa`](src/main/error/ErroreenKudeaketa.java) fitxategien existentzia egiaztatzeko, irakurtzeko/idazteko, sortzeko/ezabatzeko eta NAN bilatzeko funtzioak ditu CSV/XML-n.
+
+## Nola konpilatu eta exekutatu (proiektuaren erroan)
+- Konpilatu javac erabiliz (.class fitxategiak bin karpetan kokatzen dira):
   - Windows / PowerShell:
-    - javac -d bin -sourcepath src (find . -name "*.java" -print)  (ajustar comando según shell)
-  - Alternativa directa:
+    - javac -d bin -sourcepath src (find . -name "*.java" -print) (egokitu komandoa shellaren arabera)
+  - Alternatiba zuzena:
     - mkdir bin
-    - javac -d bin src/main/**/*.java
-- Ejecutar:
+    - javac -d bin src/main/*/.java
+- Exekutatu:
   - java -cp bin main.App
-- En VSCode: usar la extensión Java; la configuración está en [.vscode/settings.json](.vscode/settings.json).
+- VSCode-n: erabili Java hedapena; konfigurazioa hemen dago: [.vscode/settings.json](.vscode/settings.json).
 
-## Notas y próximos pasos recomendados
-- Implementar la lógica concreta de lectura/escritura y conversión en las clases de [src/main/io](src/main/io) (ahora mayormente menús).
-- Añadir pruebas unitarias (no incluidas).
-- Añadir ejemplos en resources/ para facilitar pruebas manuales.
+## Oharrak eta hurrengo pauso gomendatuak
+- Inplementatu irakurketa/idazketa eta konbertsio logika zehatza [src/main/io](src/main/io) (ahora mayormente menús) klaseetan (oraindik menuak nagusiki).
+- Gehitu unitate-probak (ez daude sartuta).
+- Gehitu adibideak resources/ karpetan eskuzko probak errazteko.
 
-## Lista rápida de archivos (links)
+## Fitxategien zerrenda azkarra (estekak)
 - [.vscode/settings.json](.vscode/settings.json)  
 - [src/main/App.java](src/main/App.java) — [`main.App`](src/main/App.java)  
 - [src/main/error/ErroreenKudeaketa.java](src/main/error/ErroreenKudeaketa.java) — [`main.error.ErroreenKudeaketa`](src/main/error/ErroreenKudeaketa.java)  
