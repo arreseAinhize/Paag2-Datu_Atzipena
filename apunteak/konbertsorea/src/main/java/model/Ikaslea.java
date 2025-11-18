@@ -121,7 +121,7 @@ public class Ikaslea {
         return nan + "," + adina;
     }
     public String toXML() {
-        return nan + "," + izena + "," + abizena + "," + adina + "," + helbidea;
+        return "<ikaslea><nan>" + nan + "</nan><helbidea>" + helbidea + "</helbidea></ikaslea>";
     }
     public String toJSON() {
         return nan + "," + izena + "," + abizena + "," + adina + "," + helbidea;

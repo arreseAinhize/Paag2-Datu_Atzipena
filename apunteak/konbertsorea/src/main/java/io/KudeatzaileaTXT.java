@@ -68,7 +68,7 @@ public class KudeatzaileaTXT {
                         break;
                     case "7":
                         Gehigarriak.kontsolaGarbitu();
-                        System.out.println(Gehigarriak.Gorria + "Atzera!");
+                        System.out.println(Gehigarriak.Gorria + "Menu Naguzia!" + Gehigarriak.RESET);
                         try {
                             App.main(null);
                         } catch (Exception e) {
@@ -195,25 +195,6 @@ public class KudeatzaileaTXT {
             break; // NAN baliozkoa eta ez dago fitxategian
         } while (true);
 
-        // Izena balidazioa
-        do {
-            System.out.print("Izena: ");
-            izena = sc.nextLine();
-            if (!Filtroak.isIzena(izena)) {
-                System.out.println(
-                        Gehigarriak.Gorria + "Izena okerra. Letra bakarrik sartu behar da." + Gehigarriak.RESET);
-            }
-        } while (!Filtroak.isIzena(izena));
-
-        // Abizena balidazioa
-        do {
-            System.out.print("Abizena: ");
-            abizena = sc.nextLine();
-            if (!Filtroak.isIzena(abizena)) {
-                System.out.println(
-                        Gehigarriak.Gorria + "Abizena okerra. Letra bakarrik sartu behar da." + Gehigarriak.RESET);
-            }
-        } while (!Filtroak.isIzena(abizena));
 
         // Adina balidazioa
         do {
@@ -228,17 +209,13 @@ public class KudeatzaileaTXT {
             break;
         } while (true);
 
-        // Helbidea
-        System.out.print("Helbidea: ");
-        helbidea = sc.nextLine();
-        helbidea = Filtroak.removeSpaces(helbidea);
 
         // Pertsona objektua sortu
-        Ikaslea p = new Ikaslea(nan, izena, abizena, adina, helbidea);
+        Ikaslea p = new Ikaslea(nan, adina);
 
         // Fitxategian gehitu
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-            bw.write(p.toCSV());
+            bw.write(p.toTXT());
             bw.newLine();
             System.out.println(Gehigarriak.Berdea + "Datuak ondo gehitu dira fitxategian." + Gehigarriak.RESET);
         } catch (IOException e) {
@@ -317,11 +294,8 @@ public static void txtFitxategianDatuakEguneratu() {
     } while (ikasleaEguneratu == null);
 
     // Datu berriak sartzeko balidazioa
-    String izena = "";
-    String abizena = "";
+    String izena = "", abizena = "" , adinaStr = "", helbidea = "";
     int adina = 0;
-    String adinaStr = "";
-    String helbidea = "";
 
     if (luzeera == 5) {
         do {
@@ -477,7 +451,7 @@ public static void txtFitxategianDatuakEguneratu() {
         fileName = sc.next();
         Filtroak.removeSpaces(fileName);
         path = "apunteak\\konbertsorea\\src\\main\\resources\\TXT\\" + fileName + ".txt";
-        csvPath = "apunteak\\konbertsorea\\src\\main\\resources\\CSV\\" + fileName + "-csv.csv";
+        csvPath = "apunteak\\konbertsorea\\src\\main\\resources\\CSV\\" + fileName + "_txt-csv.csv";
 
         // Fitxategia irakurri eta CSVra idatzi
         try (BufferedReader br = new BufferedReader(new FileReader(path));

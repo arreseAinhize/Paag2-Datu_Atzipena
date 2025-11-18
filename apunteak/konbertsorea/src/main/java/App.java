@@ -35,7 +35,7 @@ public class App {
                         Gehigarriak.kontsolaGarbitu(); 
                         break;
                     case "5": 
-                        System.out.println(Gehigarriak.Gorria + "Agur!"); 
+                        System.out.println(Gehigarriak.Gorria + "Agur!"+ Gehigarriak.RESET); 
                         break;
                     default:
                         Gehigarriak.kontsolaGarbitu();
@@ -53,6 +53,6 @@ public class App {
                     e.printStackTrace();
                 }
             }
-        } while (aukera!="5");
+        } while (!aukera.equals("5")); //equal metodoa erabiltzen da string-ak konparatzeko.
     }
 }
