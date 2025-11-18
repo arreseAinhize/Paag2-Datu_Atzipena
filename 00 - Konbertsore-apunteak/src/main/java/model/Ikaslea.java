@@ -9,6 +9,8 @@ public class Ikaslea {
     private int adina; // Adb. --> 25
     private String helbidea; // Adb. --> Calle Mayor 10, 28013 Madrid
 
+
+    
     public Ikaslea() {
         nan = "";
         izena = "";
@@ -17,6 +19,26 @@ public class Ikaslea {
         helbidea = "";
     }
 
+    // JSON-an gordeko diren datuentzat
+    public Ikaslea(String nan, String izena, String abizena) {
+        this.nan = nan;
+        this.izena = izena;
+        this.abizena = abizena;
+    }
+
+    // TXT-an gordeko diren datuentzat
+    public Ikaslea(String nan, int adina) {
+        this.nan = nan;
+        this.adina = adina;
+    }
+
+    // XML-an gordeko diren datuentzat
+    public Ikaslea(String nan, String helbidea) {
+        this.nan = nan;
+        this.helbidea = helbidea;
+    }
+
+    // CSV-an gordeko diren datuentzat
     public Ikaslea(String nan, String izena, String abizena, int adina, String email, String helbidea) {
         // Balidazioak
         if(Filtroak.isDNI(nan) == false) { // NAN balidazioa

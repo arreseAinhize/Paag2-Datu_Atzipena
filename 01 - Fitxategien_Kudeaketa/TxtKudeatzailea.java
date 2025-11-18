@@ -462,4 +462,5 @@ public class TxtKudeatzailea {
             e.printStackTrace();
         }
     }
+
 }
