@@ -1,0 +1,5 @@
+atributuak
+getter eta setterrak dituzten fitxategiak dira pojoak
+
+
+Clase bat sortzea datu abseko taulekin ondo erlazionatuta daudenak.
