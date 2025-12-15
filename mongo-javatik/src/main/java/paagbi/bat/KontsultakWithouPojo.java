@@ -83,7 +83,6 @@ public class KontsultakWithouPojo {
 
             //Shipwrecks in the Geospatial Database
             //Theaters near a specified one (Shipwrecks collection)
-
         }
     }
 }
